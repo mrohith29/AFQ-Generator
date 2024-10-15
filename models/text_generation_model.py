@@ -1,9 +1,9 @@
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer
 import torch
 
-# Load BERT model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-model = AutoModelForQuestionAnswering.from_pretrained("bert-base-uncased")
+# Load a different QA model and tokenizer
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-distilled-squad")
+model = AutoModelForQuestionAnswering.from_pretrained("distilbert-base-uncased-distilled-squad")
 
 def generate_answer(tensor, question_tensor):
     # Convert tensors back to strings
@@ -16,7 +16,7 @@ def generate_answer(tensor, question_tensor):
         context_text,
         add_special_tokens=True,
         return_tensors="pt",
-        max_length=512,    # Limit to BERT's maximum sequence length
+        max_length=512,    # Limit to the model's maximum sequence length
         truncation=True    # Truncate if it exceeds the limit
     )
 
