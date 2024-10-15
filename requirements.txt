@@ -2,3 +2,6 @@ Flask
 torch
 PyPDF2
 python-pptx
+python-dotenv
+authlib
+transformers
